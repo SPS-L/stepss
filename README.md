@@ -1,0 +1,64 @@
+# STEPSS
+
+Umbrella repository for the **STEPSS** simulation platform ([stepss.sps-lab.org](https://stepss.sps-lab.org)). It pulls in every `stepss-*` component of the [SPS-L](https://github.com/SPS-L) organization as a git submodule, each tracking its default branch.
+
+## Components
+
+| Submodule | Access | Description |
+|---|---|---|
+| [stepss-ramses](https://github.com/SPS-L/stepss-ramses) | private | RAMSES dynamic power system simulator (core engine) |
+| [stepss-uramses](https://github.com/SPS-L/stepss-uramses) | public | User-defined device models framework (custom Fortran model compilation) |
+| [stepss-pyramses](https://github.com/SPS-L/stepss-pyramses) | public | Python API/wrapper for RAMSES |
+| [stepss-pyramses-doc](https://github.com/SPS-L/stepss-pyramses-doc) | public | PyRAMSES documentation |
+| [stepss-java-ui](https://github.com/SPS-L/stepss-java-ui) | public | Java-based GUI front-end |
+| [stepss-helios](https://github.com/SPS-L/stepss-helios) | private | Helios component |
+| [stepss-pfc](https://github.com/SPS-L/stepss-pfc) | private | Power flow computation |
+| [stepss-Codegen](https://github.com/SPS-L/stepss-Codegen) | private | CODEGEN model code generation |
+| [stepss-cg-studio](https://github.com/SPS-L/stepss-cg-studio) | public | Visual block diagram editor for CODEGEN models |
+| [stepss-dyngraph](https://github.com/SPS-L/stepss-dyngraph) | private | Dynamic graph component |
+| [stepss-eigenanalysis](https://github.com/SPS-L/stepss-eigenanalysis) | public | Small-signal / eigenvalue analysis tools (MATLAB) |
+| [stepss-RamsesNN](https://github.com/SPS-L/stepss-RamsesNN) | public | Neural networks embedded in dynamic power system simulators |
+| [stepss-docs](https://github.com/SPS-L/stepss-docs) | public | Documentation website (Astro/Starlight) |
+| [stepss-userguide](https://github.com/SPS-L/stepss-userguide) | public | LaTeX user documentation and models reference |
+
+## Getting everything
+
+```sh
+git clone --recurse-submodules git@github.com:SPS-L/stepss.git
+```
+
+or over HTTPS:
+
+```sh
+git clone --recurse-submodules https://github.com/SPS-L/stepss.git
+```
+
+Submodule URLs are relative, so they use the same protocol you cloned the umbrella with. Private components require access to the SPS-L organization; without it they simply fail to fetch — initialize just the public ones with:
+
+```sh
+git submodule update --init stepss-uramses stepss-pyramses stepss-pyramses-doc \
+  stepss-java-ui stepss-cg-studio stepss-eigenanalysis stepss-RamsesNN \
+  stepss-docs stepss-userguide
+```
+
+## Updating to the latest components
+
+Each submodule tracks its default branch. To move everything to the latest tips:
+
+```sh
+./update.sh
+```
+
+then review and commit the bumped submodule pointers:
+
+```sh
+git commit -am "Update components to latest"
+git push
+```
+
+If you already cloned and someone else bumped the pointers:
+
+```sh
+git pull
+git submodule update --init --recursive
+```

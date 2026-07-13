@@ -1,0 +1,56 @@
+[submodule "stepss-cg-studio"]
+	path = stepss-cg-studio
+	url = ../stepss-cg-studio.git
+	branch = main
+[submodule "stepss-docs"]
+	path = stepss-docs
+	url = ../stepss-docs.git
+	branch = main
+[submodule "stepss-eigenanalysis"]
+	path = stepss-eigenanalysis
+	url = ../stepss-eigenanalysis.git
+	branch = main
+[submodule "stepss-helios"]
+	path = stepss-helios
+	url = ../stepss-helios.git
+	branch = main
+[submodule "stepss-pfc"]
+	path = stepss-pfc
+	url = ../stepss-pfc.git
+	branch = main
+[submodule "stepss-pyramses"]
+	path = stepss-pyramses
+	url = ../stepss-pyramses.git
+	branch = master
+[submodule "stepss-ramses"]
+	path = stepss-ramses
+	url = ../stepss-ramses.git
+	branch = master
+[submodule "stepss-uramses"]
+	path = stepss-uramses
+	url = ../stepss-uramses.git
+	branch = master
+[submodule "stepss-userguide"]
+	path = stepss-userguide
+	url = ../stepss-userguide.git
+	branch = main
+[submodule "stepss-java-ui"]
+	path = stepss-java-ui
+	url = ../stepss-java-ui.git
+	branch = main
+[submodule "stepss-Codegen"]
+	path = stepss-Codegen
+	url = ../stepss-Codegen.git
+	branch = main
+[submodule "stepss-dyngraph"]
+	path = stepss-dyngraph
+	url = ../stepss-dyngraph.git
+	branch = main
+[submodule "stepss-pyramses-doc"]
+	path = stepss-pyramses-doc
+	url = ../stepss-pyramses-doc.git
+	branch = master
+[submodule "stepss-RamsesNN"]
+	path = stepss-RamsesNN
+	url = ../stepss-RamsesNN.git
+	branch = main
