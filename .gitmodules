@@ -58,3 +58,7 @@
 	path = stepss-license-gen
 	url = ../stepss-license-gen.git
 	branch = master
+[submodule "stepss-test-systems"]
+	path = stepss-test-systems
+	url = ../stepss-test-systems.git
+	branch = main

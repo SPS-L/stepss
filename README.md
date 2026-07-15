@@ -20,6 +20,8 @@ Umbrella repository for the **STEPSS** simulation platform ([stepss.sps-lab.org]
 | [stepss-RamsesNN](https://github.com/SPS-L/stepss-RamsesNN) | public | Neural networks embedded in dynamic power system simulators |
 | [stepss-docs](https://github.com/SPS-L/stepss-docs) | public | Documentation website (Astro/Starlight) |
 | [stepss-userguide](https://github.com/SPS-L/stepss-userguide) | public | LaTeX user documentation and models reference |
+| [stepss-license-gen](https://github.com/SPS-L/stepss-license-gen) | private | License generation tooling for STEPSS components |
+| [stepss-test-systems](https://github.com/SPS-L/stepss-test-systems) | private | Power system test cases and network models |
 
 ## Getting everything
 
