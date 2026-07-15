@@ -54,3 +54,7 @@
 	path = stepss-RamsesNN
 	url = ../stepss-RamsesNN.git
 	branch = main
+[submodule "stepss-license-gen"]
+	path = stepss-license-gen
+	url = ../stepss-license-gen.git
+	branch = master
