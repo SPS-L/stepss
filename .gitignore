@@ -1,1 +1,13 @@
 .claude/
+.mcp.json
+.idea/
+.vscode/
+
+# Shell/user dotfiles leaked into the workspace by container home mounts
+.bash_profile
+.bashrc
+.gitconfig
+.profile
+.ripgreprc
+.zprofile
+.zshrc
