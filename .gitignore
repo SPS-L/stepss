@@ -1,7 +1,7 @@
 .claude/
 .mcp.json
-.idea/
-.vscode/
+.idea
+.vscode
 
 # Shell/user dotfiles leaked into the workspace by container home mounts
 .bash_profile
