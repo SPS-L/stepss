@@ -1,6 +1,8 @@
 # STEPSS
 
-Umbrella repository for the **STEPSS** simulation platform ([stepss.sps-lab.org](https://stepss.sps-lab.org)). It pulls in every `stepss-*` component of the [SPS-L](https://github.com/SPS-L) organization as a git submodule, each tracking its default branch.
+**Umbrella repository for the STEPSS power system simulation platform.**
+
+This repository pulls in every component of the [STEPSS](https://stepss.sps-lab.org/) power system simulation platform from the [SPS-L](https://github.com/SPS-L) organization as a git submodule, each tracking its default branch.
 
 ## Components
 
@@ -11,11 +13,11 @@ Umbrella repository for the **STEPSS** simulation platform ([stepss.sps-lab.org]
 | [stepss-pyramses](https://github.com/SPS-L/stepss-pyramses) | public | Python API/wrapper for RAMSES |
 | [stepss-pyramses-doc](https://github.com/SPS-L/stepss-pyramses-doc) | public | PyRAMSES documentation |
 | [stepss-java-ui](https://github.com/SPS-L/stepss-java-ui) | public | Java-based GUI front-end |
-| [stepss-helios](https://github.com/SPS-L/stepss-helios) | private | Helios component |
+| [stepss-helios](https://github.com/SPS-L/stepss-helios) | private | Modern C++ power-flow engine (successor to PFC; TUI + C API) |
 | [stepss-pfc](https://github.com/SPS-L/stepss-pfc) | private | Power flow computation |
 | [stepss-Codegen](https://github.com/SPS-L/stepss-Codegen) | private | CODEGEN model code generation |
 | [stepss-cg-studio](https://github.com/SPS-L/stepss-cg-studio) | public | Visual block diagram editor for CODEGEN models |
-| [stepss-dyngraph](https://github.com/SPS-L/stepss-dyngraph) | private | Dynamic graph component |
+| [stepss-dyngraph](https://github.com/SPS-L/stepss-dyngraph) | private | Post-processing tool for extracting and plotting RAMSES simulation curves |
 | [stepss-eigenanalysis](https://github.com/SPS-L/stepss-eigenanalysis) | public | Small-signal / eigenvalue analysis tools (MATLAB) |
 | [stepss-RamsesNN](https://github.com/SPS-L/stepss-RamsesNN) | public | Neural networks embedded in dynamic power system simulators |
 | [stepss-docs](https://github.com/SPS-L/stepss-docs) | public | Documentation website (Astro/Starlight) |
@@ -64,3 +66,15 @@ If you already cloned and someone else bumped the pointers:
 git pull
 git submodule update --init --recursive
 ```
+
+## Documentation
+
+Platform-wide documentation lives at [stepss.sps-lab.org](https://stepss.sps-lab.org/). Each component repository carries its own README with build and usage instructions.
+
+## License
+
+This umbrella repository contains only submodule pointers and helper scripts. Each component is licensed individually — see the `LICENSE` file in each component repository (a mix of Apache-2.0, MIT, CC BY 4.0, and the STEPSS Academic Public License; private components are internal to SPS-L).
+
+## Authors
+
+Developed and maintained by the [Sustainable Power Systems Laboratory (SPS-L)](https://sps-lab.org/) at the Cyprus University of Technology, under the direction of Dr. Petros Aristidou.
