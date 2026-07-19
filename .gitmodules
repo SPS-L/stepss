@@ -46,10 +46,6 @@
 	path = stepss-dyngraph
 	url = ../stepss-dyngraph.git
 	branch = main
-[submodule "stepss-pyramses-doc"]
-	path = stepss-pyramses-doc
-	url = ../stepss-pyramses-doc.git
-	branch = master
 [submodule "stepss-RamsesNN"]
 	path = stepss-RamsesNN
 	url = ../stepss-RamsesNN.git
