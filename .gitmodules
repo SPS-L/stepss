@@ -70,3 +70,7 @@
 	path = stepss-videos
 	url = ../stepss-videos.git
 	branch = main
+[submodule "stepss-ci"]
+	path = stepss-ci
+	url = ../stepss-ci.git
+	branch = main
