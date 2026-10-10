@@ -74,3 +74,7 @@
 	path = stepss-ci
 	url = ../stepss-ci.git
 	branch = main
+[submodule "stepss-rhoe"]
+	path = stepss-rhoe
+	url = ../stepss-rhoe.git
+	branch = main
