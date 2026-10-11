@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-Umbrella repo for the STEPSS simulation platform (https://stepss.sps-lab.org). It contains **no code of its own**: every `stepss-*` directory is a git submodule pointing at the matching repo in the SPS-L GitHub org, pinned to a commit and tracking that repo's default branch (a mix of `main` and `master`; see `.gitmodules`). Eight components are private: ramses, pfc, helios, Codegen, dyngraph, license-gen, test-systems, and rhoe. The first seven are private for good; rhoe is Apache 2.0 by design and stays private only until its first validated milestone.
+Umbrella repo for the STEPSS simulation platform (https://stepss.sps-lab.org). It contains **no code of its own**: every `stepss-*` directory is a git submodule pointing at the matching repo in the SPS-L GitHub org, pinned to a commit and tracking that repo's default branch (a mix of `main` and `master`; see `.gitmodules`). Eight components are private: ramses, pfc, helios, Codegen, dyngraph, license-gen, test-systems, and sterope. The first seven are private for good; sterope is Apache 2.0 by design and stays private only until its first validated milestone.
 
 Submodule URLs in `.gitmodules` are **relative** (`../<name>.git`) so the repo works over both SSH and HTTPS. Keep them relative when adding a component.
 
@@ -26,7 +26,7 @@ git submodule add -b <default-branch> ../<repo-name>.git <repo-name>
 ## Working in components
 
 - Code changes belong in the component repos, not here. Work inside `stepss-<name>/` as a normal git repo: commit and push there first, then `git add stepss-<name>` and commit the pointer bump here. Never pin a commit that hasn't been pushed to the component's remote, because that breaks cloning for everyone else.
-- Most components have their own `CLAUDE.md`, and those apply when working inside them: cg-studio, ci, Codegen, docs, dyngraph, helios, python-ui, ramses, rhoe, test-systems, uramses, userguide. The seven without one are java-ui, pfc, license-gen, eigenanalysis, RamsesNN, apt and scoop. That list goes stale every time a component gains one, so check rather than trust it:
+- Most components have their own `CLAUDE.md`, and those apply when working inside them: cg-studio, ci, Codegen, docs, dyngraph, helios, python-ui, ramses, sterope, test-systems, uramses, userguide. The seven without one are java-ui, pfc, license-gen, eigenanalysis, RamsesNN, apt and scoop. That list goes stale every time a component gains one, so check rather than trust it:
   ```sh
   for d in stepss-*/; do [ -f "$d/CLAUDE.md" ] && echo "${d%/}"; done
   ```

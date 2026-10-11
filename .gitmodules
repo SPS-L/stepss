@@ -74,7 +74,7 @@
 	path = stepss-ci
 	url = ../stepss-ci.git
 	branch = main
-[submodule "stepss-rhoe"]
-	path = stepss-rhoe
-	url = ../stepss-rhoe.git
+[submodule "stepss-sterope"]
+	path = stepss-sterope
+	url = ../stepss-sterope.git
 	branch = main
