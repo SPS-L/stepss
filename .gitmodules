@@ -78,3 +78,7 @@
 	path = stepss-sterope
 	url = ../stepss-sterope.git
 	branch = main
+[submodule "homebrew-stepss"]
+	path = homebrew-stepss
+	url = ../homebrew-stepss.git
+	branch = main
