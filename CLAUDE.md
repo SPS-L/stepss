@@ -26,7 +26,7 @@ git submodule add -b <default-branch> ../<repo-name>.git <repo-name>
 ## Working in components
 
 - Code changes belong in the component repos, not here. Work inside `stepss-<name>/` as a normal git repo: commit and push there first, then `git add stepss-<name>` and commit the pointer bump here. Never pin a commit that hasn't been pushed to the component's remote, because that breaks cloning for everyone else.
-- Most components have their own `CLAUDE.md`, and those apply when working inside them: cg-studio, ci, Codegen, docs, dyngraph, helios, python-ui, ramses, sterope, test-systems, uramses, userguide. The seven without one are java-ui, pfc, license-gen, eigenanalysis, RamsesNN, apt and scoop, plus the Homebrew tap, which is the one component not named `stepss-*`: Homebrew resolves `sps-l/stepss` to a repository called `homebrew-stepss` and to nothing else. That list goes stale every time a component gains one, so check rather than trust it:
+- Most components have their own `CLAUDE.md`, and those apply when working inside them: cg-studio, ci, Codegen, docs, dyngraph, helios, python-ui, ramses, sterope, test-systems, uramses, userguide. The eight without one are java-ui, pfc, license-gen, eigenanalysis, RamsesNN, apt, scoop and videos, plus the Homebrew tap, which is the one component not named `stepss-*`: Homebrew resolves `sps-l/stepss` to a repository called `homebrew-stepss` and to nothing else. That list goes stale every time a component gains one, so check rather than trust it. The loop reads the checkouts this repo pins, not the components' remotes, so a component whose pin predates its `CLAUDE.md` prints nothing here although the file exists upstream; stepss-ci was in that state on 2026-10-13:
   ```sh
   for d in stepss-*/ homebrew-stepss/; do [ -f "$d/CLAUDE.md" ] && echo "${d%/}"; done
   ```
@@ -77,7 +77,7 @@ Rules for keeping this uniform:
 Every cross-repo call uses one secret name, **`STEPSS_TOKEN`**, held in each repo that needs it. It is what ramses dispatches to uramses and python-ui with, what ramses, helios, dyngraph and codegen dispatch to java-ui with, what codegen dispatches to cg-studio with, what java-ui dispatches to apt, scoop and the Homebrew tap with, what uramses, python-ui and cg-studio read upstream releases with, and what java-ui checks out and re-pins components with. It is the only **token** anywhere in `stepss-*`; anything else that looks like one is GitHub's built-in token, spelled `${{ github.token }}` everywhere. Verify both halves with:
 
 ```sh
-grep -rho 'secrets\.[A-Z_]*' stepss-*/.github/workflows/*.yml homebrew-stepss/.github/workflows/*.yml | sort -u
+grep -rho 'secrets\.[A-Z0-9_]*' stepss-*/.github/workflows/*.yml homebrew-stepss/.github/workflows/*.yml | sort -u
 # expect STEPSS_TOKEN, APT_GPG_PRIVATE_KEY, APPLE_SIGNING_P12,
 # APPLE_SIGNING_P12_PASSWORD and APPLE_NOTARY_KEY_P8, and nothing else
 ```
