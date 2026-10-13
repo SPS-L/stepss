@@ -52,6 +52,7 @@ Repository `SPS-L/homebrew-stepss`, public, default branch `main`.
 
 ```
 Casks/stepss.rb
+tools/check-engine-libs.sh
 .github/workflows/update-cask.yml
 README.md
 .gitignore
@@ -105,7 +106,7 @@ end
 4. Rewrites the `version` and `sha256` lines with `sed`, then checks both new values are present.
 5. Commits as `github-actions[bot]` and pushes, only when the file changed.
 
-**`verify`**, on `macos-latest`, after `update`: checks out `main`, taps the checkout, runs `brew style`, `brew audit --cask --online`, `brew install --cask`, asserts `/Applications/STEPSS.app` exists, and uninstalls. If Homebrew on the runner refuses to load an untrusted tap, the job runs `brew trust --tap sps-l/stepss` before the audit.
+**`verify`**, on `macos-latest`, after `update`: checks out `main`, taps the checkout, runs `brew style`, `brew audit --cask --online`, `brew install --cask`, asserts `/Applications/STEPSS.app` exists, runs `tools/check-engine-libs.sh` against it, and uninstalls. If Homebrew on the runner refuses to load an untrusted tap, the job runs `brew trust --tap sps-l/stepss` before the audit.
 
 Triggers:
 
@@ -180,7 +181,7 @@ The site is built before committing. The user guide PDF, whose chapters are gene
 | Local | `brew style sps-l/stepss` | no offences |
 | Local | `brew audit --cask --online --strict sps-l/stepss/stepss` | no problems |
 | Local | move the hand-installed app to the Trash, then `brew install --cask sps-l/stepss/stepss` | `/Applications/STEPSS.app` present at 3.83, `gcc` and `openblas` installed |
-| Local | extract `ramses` from the installed `stepss.jar` and run it | the dynamic loader resolves every Homebrew library; any exit that is not a `dyld` failure passes |
+| Local and CI | `tools/check-engine-libs.sh`, which extracts the macOS engines from the installed `stepss.jar` and reads `otool -L` on each | every non-system library an engine links exists on disk; fails before `gcc` is installed and passes after |
 | Published | `brew untap`, then install from GitHub | same result from the public tap |
 | CI | `workflow_dispatch` of `update-cask.yml` | `update` commits nothing, `verify` green, no annotations |
 | CI | hand-sent `stepss-release` dispatch | a run starts, logs "Woken by", commits nothing |
