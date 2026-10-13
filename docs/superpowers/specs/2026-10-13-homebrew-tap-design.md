@@ -198,9 +198,20 @@ The site is built before committing. The user guide PDF, whose chapters are gene
 
 Each component is pushed before the umbrella pins it.
 
+## As built
+
+Four things differ from the design above, each for a reason found while building or in review. The repositories are the authority; this section records why.
+
+- **The cask has no `verified:` and does carry a bare `depends_on :macos`.** Homebrew 7 reports `verified:` as deprecated, and `brew style` adds the bare stanza. The decision against a version floor stands.
+- **The workflow is one job on macOS, not two.** It rewrites, commits locally, installs from that local commit and then pushes. Two jobs published the cask before checking it.
+- **The rewrite lives in `tools/update-cask.sh`**, so it can be run and tested outside a workflow. It refuses to move the cask to an older version, and lets a failed API call stop the run.
+- **`tools/check-engine-libs.sh` requires each linked Homebrew library to come from a formula the cask declares.** Existence on disk passed on any machine that had the formula for another reason.
+
+The audit step also passes the built-in token as `HOMEBREW_GITHUB_API_TOKEN`: unauthenticated, `brew audit --online` failed two runs on the GitHub API rate limit.
+
 ## Not covered
 
-- **`STEPSS_TOKEN` scope.** If the token is fine-grained with a repository list, `homebrew-stepss` has to be added to that list by its owner. Until then the new dispatch step fails with a 401, which reddens `promote` after the release is already published; the weekly schedule still updates the cask within a week.
+- **`STEPSS_TOKEN` scope.** The owner added `homebrew-stepss` to the token on 2026-10-13. Whether the dispatch then succeeds is first shown by the next real release; a 401 there reddens `promote` after the release is already published, and the weekly schedule still updates the cask within a week.
 - **Intel Macs.** There is no x86-64 macOS build of the engines.
 - **Older versions.** The tap serves the current release only.
 - **The user guide PDF.**
