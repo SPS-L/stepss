@@ -82,3 +82,7 @@
 	path = homebrew-stepss
 	url = ../homebrew-stepss.git
 	branch = main
+[submodule "stepss-licensing"]
+	path = stepss-licensing
+	url = ../stepss-licensing.git
+	branch = main

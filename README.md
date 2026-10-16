@@ -22,6 +22,7 @@ This repository pulls in every component of the [STEPSS](https://stepss.sps-lab.
 | [stepss-docs](https://github.com/SPS-L/stepss-docs) | public | Documentation website (Astro/Starlight) |
 | [stepss-userguide](https://github.com/SPS-L/stepss-userguide) | public | LaTeX user documentation and models reference |
 | [stepss-license-gen](https://github.com/SPS-L/stepss-license-gen) | private | License generation tooling for STEPSS components |
+| [stepss-licensing](https://github.com/SPS-L/stepss-licensing) | private | Licensing scheme design and registration portal for the STEPSS engines |
 | [stepss-test-systems](https://github.com/SPS-L/stepss-test-systems) | private | Power system test cases and network models |
 
 ## Getting everything
