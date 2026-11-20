@@ -21,3 +21,6 @@ secret.b64
 .ripgreprc
 .zprofile
 .zshrc
+
+# macOS Finder metadata
+.DS_Store
